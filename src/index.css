@@ -1,0 +1,256 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/*
+  Design System v2 — premium dark editorial.
+  Single accent (terracotta). Dark-only. Tokens drive everything;
+  utilities derive from these names (bg-base, bg-surface, text-primary,
+  text-secondary, text-muted, border-line, bg-accent, shadow-md, etc.).
+*/
+@theme {
+  /* Surfaces — shifted ~12 units brighter across the board */
+  --color-base: #1B1B1B;
+  --color-sidebar: #1E1E1E;
+  --color-surface: #262626;
+  --color-elevated: #2E2E2E;
+
+  /* Borders — sub-pixel surgical lines */
+  --color-line: rgba(255, 255, 255, 0.07);
+  --color-line-hover: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --color-primary: #f5f5f5; /* neutral-100, cold (professional) */
+  --color-secondary: #9A9A94;
+  --color-muted: #6B6B65;
+
+  /* Accent (monochrome glass — crisp white/silver light) */
+  --color-accent: #e5e5e5;
+  --color-accent-hover: #f5f5f5;
+  --color-accent-subtle: rgba(229, 229, 229, 0.08);
+
+  /* Shared easing for premium micro-interactions */
+  --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* Status (functional, not the accent) */
+  --color-status: #4caf50;
+
+  /* Fonts */
+  --font-display: "Fraunces", ui-serif, Georgia, serif; /* big editorial headings */
+  --font-serif: "Newsreader", ui-serif, Georgia, serif; /* long-form reading body */
+  --font-editorial: "Newsreader", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+  --shadow-accent: 0 0 24px rgba(229, 229, 229, 0.1);
+}
+
+/* ---------- Lenis smooth scroll (prevents overflow jitter) ---------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+html {
+  /* Lenis drives smoothing; keep native behaviour out of the way. */
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-base);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.5s ease;
+}
+
+/* Personal "analog/editorial" mode — warmer text temperature. */
+.mode-personal {
+  --color-primary: #e7e5e4;   /* stone-200 */
+  --color-secondary: #a8a29e; /* stone-400 */
+  --color-muted: #78716c;     /* stone-500 */
+}
+
+/* Text selection — professional: cold white wash. */
+::selection {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+/* Text selection — personal: warm map-ink hue. */
+.mode-personal *::selection {
+  background: rgba(120, 113, 108, 0.2); /* stone-500/20 */
+  color: #f5f5f4;                        /* stone-100 */
+}
+
+/* Topographic pan animation — slow 60s drift, SVG oversized so no seam shows. */
+@keyframes topo-pan {
+  0%   { transform: translate(0,     0);     }
+  20%  { transform: translate(-55px, -30px); }
+  45%  { transform: translate(-95px, -18px); }
+  70%  { transform: translate(-50px, -55px); }
+  100% { transform: translate(0,     0);     }
+}
+.topo-pan {
+  animation: topo-pan 60s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Background grid + glow live in the App background layer (App.jsx). */
+
+/* Visible focus states (2px accent outline, 2px offset). */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- Typography scale ---------- */
+.t-h1 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.75rem, 7vw, 4.75rem); /* up to 76px */
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.t-h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 4vw, 3rem); /* up to 48px */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.t-h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.75rem; /* 28px */
+  line-height: 1.25;
+}
+.t-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.t-small {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.t-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+/* Long-form reading body — editorial serif treatment (timeline + project details). */
+.prose-editorial {
+  font-family: var(--font-serif); /* Newsreader */
+  font-size: 1.125rem; /* 18px (text-lg) */
+  line-height: 1.65; /* leading-relaxed */
+  letter-spacing: 0.01em;
+  color: #a3a3a3; /* neutral-400 reading body */
+}
+.prose-editorial p + p {
+  margin-top: 1.4em;
+}
+
+/* Section eyebrow: `// label` in mono accent. */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--color-accent);
+}
+
+/* ---------- Texture ---------- */
+/* Single subtle radial glow behind the hero only. */
+.hero-gradient {
+  background-image: radial-gradient(
+    ellipse at 60% 40%,
+    rgba(255, 255, 255, 0.03) 0%,
+    transparent 60%
+  );
+}
+
+/* ---------- Status indicator ---------- */
+@keyframes status-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.55); }
+  70% { box-shadow: 0 0 0 6px rgba(76, 175, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+}
+.status-dot {
+  animation: status-pulse 2s ease-out infinite;
+}
+
+/* Personal mode: soft stone/white pulsing dot (replaces green status dot) */
+@keyframes personal-status-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(168, 162, 158, 0.5); }
+  70%  { box-shadow: 0 0 0 5px rgba(168, 162, 158, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(168, 162, 158, 0); }
+}
+.personal-status-dot {
+  animation: personal-status-pulse 2.5s ease-out infinite;
+}
+
+/* ---------- Small flourishes ---------- */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1.5px;
+  transition: background-size 0.15s ease;
+}
+.link-underline:hover { background-size: 100% 1.5px; }
+
+@keyframes tab-fade {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.tab-panel { animation: tab-fade 0.25s ease; }
+
+/* Waypoint radar-blip ping for TravelMap markers */
+@keyframes waypoint-ping {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  75%  { transform: scale(3);   opacity: 0;   }
+  100% { transform: scale(3);   opacity: 0;   }
+}
+.waypoint-ping {
+  animation: waypoint-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* ── Hide scrollbar — used by The Viewfinder horizontal film strip ── */
+.hide-scrollbar {
+  -ms-overflow-style: none;   /* IE / Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;              /* Chrome / Safari / Opera */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .status-dot,
+  .personal-status-dot,
+  .tab-panel,
+  .topo-pan,
+  .waypoint-ping { animation: none; }
+}
