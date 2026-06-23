@@ -28,16 +28,16 @@ export const content = {
 
   personal: {
     currently: [
-      { text: 'Hanging out in Columbus, OH', dot: 'accent' },
-      { text: 'Always up for a coffee chat', dot: 'status' },
+      { text: 'Next adventure, TBD', dot: 'accent' },
+      { text: 'Probably thinking about my next meal', dot: 'status' },
     ],
     hero: {
-      status: '~ probably overthinking a playlist',
+      status: '~ finding my way, enjoying the ride',
       greetingLead: "Hey, I'm",
       name: 'Gautam',
       photo: '/personal.JPG',
       intro:
-        "[Your personal intro here]. When I'm not shipping code I'm usually cooking, traveling, or somewhere slightly unfamiliar. Here's a little more about the person behind the resume.",
+        "Engineer by profession and passion, adventurer by nature. I invest in myself and the people around me, professionally and personally, or so I've been told. I'd like to think it's a win-win. Here's a little more about the person behind the work.",
     },
     work: {
       eyebrow: '// life',

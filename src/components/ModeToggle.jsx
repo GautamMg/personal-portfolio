@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useMode } from '../context/ModeContext.jsx'
 
 const TOOLTIPS = {
@@ -8,6 +9,7 @@ const TOOLTIPS = {
 
 export default function ModeToggle() {
   const { mode, setMode } = useMode()
+  const navigate = useNavigate()
   const [hovered, setHovered] = useState(null) // which half is hovered/focused
   const [confirmOpen, setConfirmOpen] = useState(false)
   const popoverRef = useRef(null)
@@ -24,12 +26,14 @@ export default function ModeToggle() {
   const handleProfessionalClick = () => {
     setConfirmOpen(false)
     setMode('professional')
+    navigate('/')
   }
 
   const confirmSwitch = () => {
     setMode('personal')
     setConfirmOpen(false)
     personalBtnRef.current?.focus()
+    navigate('/')
   }
 
   const dismiss = () => {

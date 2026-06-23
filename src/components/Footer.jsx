@@ -25,7 +25,7 @@ export default function Footer() {
       <p className="t-body mt-3 text-secondary">
         {isPersonal
           ? 'Feel free to reach out for good conversations :)'
-          : 'Feel free to reach out for collaborations or just a friendly hello 😀'}
+          : 'Feel free to reach out for good conversations :)'}
       </p>
       <a
         href={`mailto:${EMAIL}`}

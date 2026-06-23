@@ -1,6 +1,7 @@
 import SectionHeading from '../components/SectionHeading.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Footer from '../components/Footer.jsx'
+import { useMode } from '../context/ModeContext.jsx'
 
 const highlights = [
   '🎓 M.S., Ohio State',
@@ -19,7 +20,8 @@ function Para({ children }) {
   )
 }
 
-export default function About() {
+/* ── Professional About ─────────────────────────────────────────────────── */
+function ProfessionalAbout() {
   return (
     <div className="space-y-20">
       <header>
@@ -116,4 +118,99 @@ export default function About() {
       <Footer />
     </div>
   )
+}
+
+/* ── Personal About ─────────────────────────────────────────────────────── */
+function PersonalAbout() {
+  return (
+    <div className="space-y-20">
+      <header>
+        <p className="eyebrow mb-3">// about</p>
+        <h1 className="t-h1 text-primary">About me</h1>
+      </header>
+
+      <Reveal as="section">
+        <SectionHeading eyebrow="// origins" title="Where I come from" />
+        <Para>
+          I am from India. I have always been excited and curious about
+          everything, an open canvas, subconsciously looking to fill it with
+          experiences and events. I feel it has always been the case, except now
+          I do it intentionally. I consciously embrace the journey and enjoy the
+          moments along the way.
+        </Para>
+        <Para>
+          Growing up, I moved from a sheltered upbringing to a big city for my
+          undergraduate degree, on merit and on my own. That was the first real
+          decision I made entirely for myself, and it set the tone for everything
+          after. I went from being someone who was happy being independent to
+          someone who genuinely valued the people around them. That shift happened
+          through shared experiences, leading events, representing my peers, and
+          slowly realising that the best version of anything is usually built with
+          other people, not despite them.
+        </Para>
+        <Para>
+          In my final year of undergrad, I was one of ten students selected from
+          my batch for a semester abroad at ESIGELEC University in Rouen, France.
+          New country, new language in the streets, new people from all over the
+          world in the same classroom. I found, paradoxically, that I was most
+          comfortable in the unfamiliar. Something about being dropped into a
+          place where nothing is on autopilot forces you to actually pay
+          attention, to everything. That experience changed something in me that
+          I have not been able to fully articulate since, but it shows up in how
+          I approach most things now.
+        </Para>
+      </Reveal>
+
+      <Reveal as="section">
+        <SectionHeading eyebrow="// off the clock" title="What I do when I'm not working" />
+        <Para>
+          Sports have been a constant thread throughout my life. Cricket,
+          badminton, chess. I have represented my city, been part of clubs, and
+          never really stopped. Playing and watching, it does not matter much
+          which one. There is something about sport that keeps me grounded in a
+          way most other things do not. It is part of my identity and my journey
+          all along.
+        </Para>
+        <Para>
+          I cook a lot. During the COVID-19 pandemic, I developed over 150
+          recipes inspired by cuisines from around the world, which sounds like
+          an exaggeration but genuinely was a pandemic project that got slightly
+          out of hand. Cooking new cuisines is less about the outcome and more
+          about figuring something out from scratch with what you have in front
+          of you. That part never gets old.
+        </Para>
+        <Para>
+          I travel whenever I can, not just to see places, but to understand how
+          different people live, what they value, how they eat and talk and move
+          through their days. More than a hundred trips in, I still find that the
+          most interesting thing about any new place is not the landmark but the
+          ordinary rhythm of it. Something about travelling fills me up and brings
+          contentment to my life. It helps to look at life in a zoomed-out way
+          and brings profound joy.
+        </Para>
+      </Reveal>
+
+      <Reveal as="section">
+        <SectionHeading eyebrow="// how I live" title="How I live" />
+        <Para>
+          I value my time and genuineness, so I invest in myself and the people
+          around me, personally and professionally. I care about showing up
+          fully, for whatever is in front of me and for whoever is around me. I
+          would like to think it is a win-win.
+        </Para>
+        <Para>
+          I am far from a finished product. But I am pointed in the right
+          direction, and I show up every day to make sure of that.
+        </Para>
+      </Reveal>
+
+      <Footer />
+    </div>
+  )
+}
+
+/* ── Shell ──────────────────────────────────────────────────────────────── */
+export default function About() {
+  const { mode } = useMode()
+  return mode === 'personal' ? <PersonalAbout /> : <ProfessionalAbout />
 }

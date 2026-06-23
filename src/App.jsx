@@ -35,10 +35,33 @@ function PaddedPage({ children }) {
   )
 }
 
+// Per-route document titles. Keeps the browser tab + SEO/search snippets
+// distinct per page (the SPA otherwise keeps the index.html title everywhere).
+const NAME = 'Gautam Gururaj Molakalmuru'
+const ROUTE_TITLES = {
+  '/': NAME,
+  '/about': `About · ${NAME}`,
+  '/projects': `Projects · ${NAME}`,
+  '/experience': `Experience · ${NAME}`,
+  '/skills': `Skills · ${NAME}`,
+  '/highlights': `Highlights · ${NAME}`,
+  '/logs': `Engineering Logs · ${NAME}`,
+  '/timeline': `Timeline · ${NAME}`,
+  '/contact': `Contact · ${NAME}`,
+  '/cooking': `Cooking · ${NAME}`,
+  '/sports': `Sports · ${NAME}`,
+  '/travel': `Travel · ${NAME}`,
+  '/happy': `Happy Things · ${NAME}`,
+  '/constants': `Constants · ${NAME}`,
+}
+
 // Scrolls to #anchor (timeline "Learn more" deep links) once the new page
 // has mounted, otherwise scrolls to top on route change.
 function ScrollManager() {
   const { pathname, hash } = useLocation()
+  useEffect(() => {
+    document.title = ROUTE_TITLES[pathname] || NAME
+  }, [pathname])
   useEffect(() => {
     const lenis = getLenis()
     if (hash) {

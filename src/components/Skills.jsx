@@ -16,7 +16,7 @@ const tracks = [
       { name: 'Testing & Quality', items: ['JUnit', 'Mockito', 'SonarQube', 'Postman'] },
       { name: 'DevOps & Tooling', items: ['Docker', 'Kubernetes', 'Jenkins (CI/CD)', 'Git', 'Linux'] },
       { name: 'Cloud', items: ['AWS (Certified Cloud Practitioner)', 'GCP'] },
-      { name: 'Domain Experience', list: true, items: ['B2B e-commerce platforms', 'Request for Quotation (RFQ) workflows', 'Full SDLC from pilot to global production launch'] },
+      { name: 'Domain Experience', list: true, items: ['B2B e-commerce platforms', 'Full SDLC from pilot to global production launch'] },
     ],
   },
   {
