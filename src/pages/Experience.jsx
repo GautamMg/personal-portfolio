@@ -38,6 +38,24 @@ const experiences = [
     ],
     tags: ['Python', 'YOLO', 'Docker', 'MQTT', 'Raspberry Pi', 'Edge AI', 'Computer Vision'],
   },
+  {
+    id: 'icicle',
+    eyebrow: '// research',
+    role: 'Graduate Research Associate',
+    company: 'ICICLE, NSF-funded AI Institute · The Ohio State University',
+    location: 'Columbus, OH',
+    period: 'Aug 2025 to Dec 2026',
+    monogram: 'I',
+    body: [
+      'AI and ML systems have a lot of moving parts. Data ingestion, pre-processing, training, fine-tuning, deployment. In most research environments, coordinating those steps is largely manual. A researcher kicks off one step, waits for it to finish, then triggers the next. That waiting and watching is where most of the time goes, not the compute itself.',
+      'At Ohio State I work as a Graduate Research Associate with ICICLE, an NSF-funded AI institute focused on building the cyberinfrastructure needed to support fast-growing AI research. I contribute to the Middleware and Tools project, where the goal is to orchestrate those end-to-end workflows with minimum human intervention.',
+      'The idea is straightforward. A user defines a simple rule, something like "retrain my model after 1,000 new images arrive", and the system handles everything from there. A file watcher monitors the folder, detects the threshold, raises an event, collects what is needed, retrains the model, and pushes the updated version back into production. No one has to sit and watch. The broader aim across the project is the same: design middleware and pipelines that reduce manual intervention and help the system scale, regardless of the specific workflow.',
+      'I designed and built the initial prototype of this pipeline. That meant a MongoDB store for user-defined rules that trigger pipelines, a lightweight Kafka-based pub/sub layer connecting all the components, consumer services that bridge events to the right jobs, and Docker containers so everything runs consistently whether it is on a local machine, a research cluster, or the cloud. The environment mattered here, research workflows move fast and need to be easy to test, iterate, and scale without a lot of friction.',
+      'The original process took around 12 hours because each step waited on a human to initiate the next one. With the event-driven orchestration layer I built, that dropped to under an hour. Not because the compute got faster, but because the pipeline stopped waiting.',
+      'This work also led to research contributions beyond the engineering itself. I was a contributing author on a paper titled Beyond Automation: Integrating Agentic Capabilities into MLOps, accepted at PEARC \'25, which looked at how AI and ML pipelines can move beyond fixed automation and become more adaptive, monitoring system state and making decisions like when to retrain a model without waiting for human input. I also presented a poster and delivered a lightning talk at the ICICLE All-Hands Meeting, and presented a poster at the Gateways \'25 conference focused on the practical challenges of running ML systems reliably in real world environments.',
+    ],
+    tags: ['Python', 'Kafka', 'MongoDB', 'HPC', 'Docker', 'MLOps', 'Event-driven Architecture', 'Linux'],
+  },
 ]
 
 function ExperienceEntry({ exp }) {

@@ -28,92 +28,101 @@ function ProfessionalAbout() {
         <p className="eyebrow mb-3">// about</p>
         <h1 className="t-h1 text-primary">About me</h1>
         <p className="t-body mt-6 max-w-[60ch] text-lg text-primary/90">
-          I'm Gautam, a software engineer who recently finished my Master's in
-          Computer Science at The Ohio State University. I like building things
-          that real people actually use, and I'm happiest a little outside my
-          comfort zone.
+          I'm Gautam. I build software, I recently finished my Master's at Ohio
+          State, and I am most comfortable when I am slightly out of my depth.
         </p>
 
-        <ul className="mt-8 flex flex-wrap gap-2">
-          {highlights.map((h) => (
-            <li
-              key={h}
-              className="t-small rounded-full border border-line bg-surface px-3 py-1.5 font-medium text-primary"
-            >
-              {h}
-            </li>
-          ))}
-        </ul>
       </header>
 
       <Reveal as="section">
         <SectionHeading eyebrow="// building" title="Learning by building" />
         <Para>
-          I joined an e-commerce company right out of undergrad as one of the
-          early engineers on a small team, building a B2B e-commerce platform
-          completely from scratch. We had about ten months to a global launch,
-          a mix of new technology, real deadlines, and high stakes that pushed
-          me to grow fast.
+          Right out of undergrad I joined as one of the early engineers on a
+          small team building a B2B platform from scratch. Ten months to a
+          global launch. That combination of new technology, real deadlines, and
+          high stakes pushed me to grow fast, probably faster than I would have
+          chosen to on my own.
         </Para>
         <Para>
-          After launch, I worked directly with business users: onboarding them,
-          understanding their pain points, and translating what they couldn't
-          quite articulate into things we could actually fix. That taught me
-          that good engineering isn't just about what you build, but about how
-          real people end up using it. I was recognised with a performance award
-          for my contributions across both phases.
+          After launch, I moved into working directly with business users,
+          sitting with their frustrations, and translating what they could not
+          always articulate into things we could actually fix. That phase taught
+          me something the pre-launch work did not. Good engineering is not just
+          about what you build. It is about what happens when real people try to
+          use it. I was recognised with a performance award for contributions
+          across both phases.
         </Para>
       </Reveal>
 
       <Reveal as="section">
         <SectionHeading eyebrow="// research" title="Research at Ohio State" />
         <Para>
-          After two years, I came to Ohio State for my Master's. I joined
-          ICICLE, an NSF-funded AI institute, where I work on middleware that
-          orchestrates AI/ML workflows with minimal human intervention. The
-          kind of infrastructure where a user sets a rule once and the system
-          handles everything from data ingestion to model retraining to
-          redeployment on its own.
+          I came to Ohio State for my Master's and ended up joining ICICLE, an
+          NSF-funded AI institute, where I work on middleware that orchestrates
+          AI and ML workflows with minimal human intervention. A user sets a
+          rule once and the system handles everything from there, data
+          ingestion, model retraining, redeployment, on its own.
         </Para>
         <Para>
-          That work led to a published paper on agentic AI in MLOps and a couple
-          of conference presentations.
+          That work led to a published paper on agentic AI in MLOps and a
+          couple of conference presentations, both of which were new territory
+          for me and things I am glad I pushed myself into.
         </Para>
       </Reveal>
 
       <Reveal as="section">
-        <SectionHeading eyebrow="// edge" title="Edge AI in the wild" />
+        <SectionHeading eyebrow="// breadth" title="Spreading out" />
         <Para>
-          Last summer I interned at the Texas Advanced Computing Center in
-          Austin, working on camera traps built on Raspberry Pis and deployed in
-          the wild, running computer vision models on-device to detect animals
-          in real time and signaling nearby drones to fly in for a closer look.
+          The work I have done has naturally pulled me into more than one
+          domain, not by design but because each project demanded something a
+          little different.
         </Para>
         <Para>
-          Writing software that runs in the middle of a forest on constrained
-          hardware, with no room for inefficiency, was a genuinely different
-          kind of challenge.
+          On the data side, I have built high throughput Kafka pipelines
+          handling millions of data points, managed MongoDB and Elasticsearch
+          clusters, and designed systems where data moves reliably across
+          services in real time. That foundation shaped how I think about any
+          system where data is the core of what is actually happening.
+        </Para>
+        <Para>
+          On the AI and ML side, I have gone from building the orchestration
+          infrastructure that automates the ML lifecycle to getting hands on
+          with computer vision models, fine tuning them for specific real world
+          conditions and deploying them to edge devices with hard compute
+          constraints. The gap between a model that works in a notebook and one
+          that works reliably in the field is where I have spent a lot of time.
+        </Para>
+        <Para>
+          Cloud and DevOps came in through the work itself. Containerising
+          services with Docker, orchestrating with Kubernetes, shipping through
+          CI/CD pipelines on AWS, and then doing the same on the opposite end
+          of the spectrum on constrained edge hardware. Through my research I
+          also worked extensively in high performance computing environments at
+          OSC and TACC, which is a different kind of scale and infrastructure
+          challenge altogether. I am AWS certified and have worked across GCP
+          as well.
+        </Para>
+        <Para>
+          During my time at the e-commerce company, I worked directly with
+          business users after launch, helping them get comfortable with the
+          product, understanding where things were not working the way they
+          expected, and translating that back into something engineering could
+          act on. Customers rarely describe the exact technical problem. They
+          describe how something feels. Learning to read between the lines and
+          turn that into real fixes is something I picked up along the way, and
+          it turned out to be one of the more quietly valuable things I picked
+          up.
         </Para>
       </Reveal>
 
       <Reveal as="section">
         <SectionHeading eyebrow="// off the clock" title="Outside of work" />
         <Para>
-          I cook a lot, usually something from a cuisine I haven't tried before.
-          I travel when I can, watch and play sports, and I'm most comfortable
-          somewhere slightly unfamiliar. I spent a semester studying in France
-          during undergrad, which probably started that.
+          I love my time with nature, people and animals, so I travel when I
+          can. I cook a lot, usually something from a cuisine I have not tried
+          before, and I watch and play sports whenever I get the chance. Feel
+          free to toggle to my personal section to see the off the clock me.
         </Para>
-        <ul className="mt-6 flex flex-wrap gap-2">
-          {interests.map((i) => (
-            <li
-              key={i}
-              className="t-small rounded border border-accent/40 bg-accent-subtle px-3 py-1.5 text-primary"
-            >
-              {i}
-            </li>
-          ))}
-        </ul>
       </Reveal>
       <Footer />
     </div>
